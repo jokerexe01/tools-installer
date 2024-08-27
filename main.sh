@@ -55,7 +55,7 @@ check_kali_or_ubuntu(){
         if [ -f /etc/os-release ]; then
         . /etc/os-release
         if [ "$ID" = "kali" ]; then
-            echo "The system is running Kali Linux." | lolcat
+            echo -e "\e[32mThe system is running Kali Linux.\e[0m"
             #calling kali Linux for tool installetion 
             ./installers/kali_installer
         elif [ "$ID" = "ubuntu" ]; then
@@ -63,11 +63,11 @@ check_kali_or_ubuntu(){
             #calling ubuntu for tool installetion
             ./installers/other_linux_installer
         else
-            echo -e "\e[31mThe system is not running Kali or Ubuntu. It is running $ID.\e[0m" | lolcat
+            echo -e "\e[31mThe system is not running Kali or Ubuntu. It is running $ID.\e[0m"
             ./installers/other_linux_installer
         fi
     else
-        echo "Cannot determine the operating system." | lolcat
+        echo "Cannot determine the operating system."
     fi
 }
 
