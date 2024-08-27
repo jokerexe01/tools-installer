@@ -83,7 +83,7 @@ Tool_for_ubuntu() {
     if [ -d "$ccreepyCrawler_DIR" ]; then
         echo -e "\e[32mcreepyCrawler already exist\e[0m"
     else
-        echo "Now installing creepyCrawler..." | lolcat
+        echo "Now installing creepyCrawler..."
         cd ~/Tools
         git clone https://github.com/chm0dx/creepyCrawler.git
         cd creepyCrawler
