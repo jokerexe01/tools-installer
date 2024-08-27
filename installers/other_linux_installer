@@ -109,7 +109,7 @@ Tool_for_ubuntu() {
         git clone https://github.com/swisskyrepo/SSRFmap.git
         cd SSRFmap
         pip install -r requirements.txt
-        chmdo +x ssrfmap.py
+        chmod +x ssrfmap.py
     fi
 
     #seclists
