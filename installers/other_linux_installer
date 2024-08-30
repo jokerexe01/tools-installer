@@ -37,7 +37,7 @@ Tool_for_ubuntu() {
     else
         echo -e "\e[31mnow installing sqlmap....\e0m"
         cd ~/Tools
-        git clone https://github.com/sqlmapproject/sqlmap.git &>/dev/null
+        git clone https://github.com/sqlmapproject/sqlmap.git
     fi
 
     #ghauri
@@ -135,9 +135,7 @@ Tool_for_ubuntu() {
     fi
 
     #checking wpscan
-    if command -v wpscan &>/dev/null; then
-        echo -e "\e[32mWpscan is already installed\e[0m"
-    else
+    if ! command -v wpscan &>/dev/null; then
         echo -e "\e[31mNow installing wpscan\e[0m"
         sudo apt install gem
         sudo apt install ruby
@@ -145,9 +143,16 @@ Tool_for_ubuntu() {
         sudo gem install wpscan
         echo -e "\e[32mWpscan installed u good to go\e[0m
         "
+    else
+        echo -e "\e[32mWpscan is already installed\e[0m"
+
     fi
 
     # calling go tool for installetion
+<<<<<<< HEAD
     exec installers/go_tool_installer
+=======
+    exec /installers/go_tool_installer
+>>>>>>> 88761ca (Your commit message)
 }
 Tool_for_ubuntu
