@@ -149,6 +149,6 @@ Tool_for_ubuntu() {
     fi
 
     # calling go tool for installetion
-    ./installers/go_tool_installer
+    exeec installers/go_tool_installer
 }
 Tool_for_ubuntu
