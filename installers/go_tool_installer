@@ -1,13 +1,12 @@
 #!/bin/bash
 
-#dalfox
 install_go_tools() {
     # Function to install a tool if it's not already installed
     install_tool_if_needed() {
         local tool_name=$1
         local install_command=$2
         if ! command -v $tool_name &>/dev/null; then
-            echo "\e[31m$tool_name is not installed. Now installing $tool_name.....\e[0m"
+            echo -e "\e[31m$tool_name is not installed. Now installing $tool_name.....\e[0m"
             eval $install_command
         else
             echo -e "\e[32m$tool_name is already installed\e[0m"
