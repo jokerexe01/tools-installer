@@ -22,7 +22,7 @@ Tool_for_ubuntu() {
         echo -e "\e[32mXsstrike is already installed path is ~/Tools/XSStrike.\e[0m"
     else
         echo -e "\e[32mXSStrike not installed. Now installing XSStrike....\e[0m"
-        cd Tools
+        cd ~/Tools
         git clone https://github.com/s0md3v/XSStrike.git
         cd XSStrike
         pip3 install -r requirements.txt
