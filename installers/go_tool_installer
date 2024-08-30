@@ -7,7 +7,7 @@ install_go_tools() {
         local tool_name=$1
         local install_command=$2
         if ! command -v $tool_name &>/dev/null; then
-            echo "\e[31m$tool_name is not installed. Now installing $tool_name.....\e0m"
+            echo "\e[31m$tool_name is not installed. Now installing $tool_name.....\e[0m"
             eval $install_command
         else
             echo -e "\e[32m$tool_name is already installed\e[0m"
