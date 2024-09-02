@@ -136,9 +136,7 @@ Tool_for_ubuntu() {
     #checking wpscan
     if ! command -v wpscan &>/dev/null; then
         echo -e "\e[31mNow installing wpscan\e[0m"
-        sudo apt install gem
-        sudo apt install ruby
-        sudo apt install build-essential libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev libgmp-dev zlib1g-dev
+        sudo apt install ruby gem build-essential libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev libgmp-dev zlib1g-dev
         sudo gem install wpscan
         echo -e "\e[32mWpscan installed u good to go\e[0m
         "
