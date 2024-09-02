@@ -106,8 +106,7 @@ kali_tools_installer() {
     fi
     
     #calling go tool for installetion
-    cd $TARGET
-    exec installers/go_tool_installer
+    bash $TARGET/installers/go_tool_installer
 }
 #calling the fum=nction
 kali_tools_installer
