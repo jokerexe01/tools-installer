@@ -21,6 +21,7 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt autoremove
 sudo apt install libcap-dev -y
+TARGET=$(pwd)
 
 #checking requirments
 

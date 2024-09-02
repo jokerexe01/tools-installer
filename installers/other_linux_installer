@@ -1,7 +1,6 @@
 #!/bin/bash
 
 Tool_for_ubuntu() {
-
     #feroxbuster
     if ! command -v feroxbuster &>/dev/null; then
         echo -e "\e[31mferoxbuster is not installed. Installing feroxbuster...\e[0m"
@@ -149,6 +148,7 @@ Tool_for_ubuntu() {
     fi
 
     # calling go tool for installetion
+    cd $TARGET
     exec installers/go_tool_installer
 }
 Tool_for_ubuntu
