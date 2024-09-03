@@ -146,6 +146,6 @@ Tool_for_ubuntu() {
     fi
 
     # calling go tool for installetion
-    bash $TARGET/installers/go_tool_installer
+    ./installers/go_tool_installer.sh
 }
 Tool_for_ubuntu
