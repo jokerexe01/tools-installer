@@ -125,7 +125,6 @@ Tool_for_ubuntu() {
         "
     else
         echo -e "\e[32mWpscan is already installed\e[0m"
-
     fi
 
     # calling go tool for installetion
