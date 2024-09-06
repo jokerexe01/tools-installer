@@ -84,7 +84,7 @@ check_kali_or_ubuntu(){
             ./installers/other_linux_installer
         fi
     else
-        echo "Cannot determine the operating system."
+        echo -e "\e[32mCannot determine the operating system...\e[0m"
     fi
 }
 

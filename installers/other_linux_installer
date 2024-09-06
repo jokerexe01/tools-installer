@@ -19,8 +19,8 @@ Tool_for_ubuntu() {
         echo -e "\e[32mXsstrike is already installed path is ~/Tools/XSStrike.\e[0m"
     else
         echo -e "\e[32mXSStrike not installed. Now installing XSStrike....\e[0m"
-        git clone https://github.com/s0md3v/XSStrike.git ~/Tools
-        pip3 install -r ~/Tools/requirements.txt
+        git clone https://github.com/s0md3v/XSStrike.git ~/XSStrike/Tools
+        pip3 install -r ~/Tools/XSStrike/requirements.txt
         chmod +x ~/Tools/XSStrike/XSStrike/xsstrike.py
         echo -e "\e[31mXSStrike is now installed in ~/Tools\e[0m"
     fi
@@ -31,13 +31,13 @@ Tool_for_ubuntu() {
         echo -e "\e[32msqlmap is already installed path is ~/Tools/sqlmap\e[0m"
     else
         echo -e "\e[31mnow installing sqlmap....\e0m"
-        git clone https://github.com/sqlmapproject/sqlmap.git ~/Tools
+        git clone https://github.com/sqlmapproject/sqlmap.git ~/sqlmap/Tools
     fi
 
     #ghauri
     if ! command -v ghauri &>/dev/null; then
         echo -e "\e[31mghauri is not installed. Now installing ghauri....\e[0m"
-        git clone https://github.com/r0oth3x49/ghauri.git ~/Tools
+        git clone https://github.com/r0oth3x49/ghauri.git ~/ghauri/Tools
         pip3 install -r ~/Tools/ghauri/requirements.txt
         python3 ~/Tools/ghauri/setup.py build
         sudo python3 ~/Tools/ghauri/setup.py install
@@ -48,7 +48,7 @@ Tool_for_ubuntu() {
     #checking if waymore installed or not
     if ! command -v waymore &>/dev/null; then
         echo -e "\e[31mwaymore is not installed. Now installing waymore...\e[0m"
-        git clone https://github.com/xnl-h4ck3r/waymore.git ~/Tools
+        git clone https://github.com/xnl-h4ck3r/waymore.git ~/waymore/Tools
         pip3 install -r ~/Tools/waymore/requirements.txt
         python3 ~/Tools/waymore/setup.py build
         sudo python3 ~/Tools/waymore/setup.py install
@@ -59,7 +59,7 @@ Tool_for_ubuntu() {
     #checkinng if paramspider installed or not
     if ! command -v paramspider &>/dev/null; then
         echo -e "\e[31mparamspier is not installed. Now installing para,spider...\e[0m"
-        git clone https://github.com/devanshbatham/ParamSpider.git ~/Tools
+        git clone https://github.com/devanshbatham/ParamSpider.git ~/ParamSpider/Tools
         python3 ~/Tools/ParamSpider/setup.py build
         sudo python3 ~/Tools/ParamSplider/setup.py install
     else
@@ -72,7 +72,7 @@ Tool_for_ubuntu() {
         echo -e "\e[32mcreepyCrawler already exist\e[0m"
     else
         echo "Now installing creepyCrawler..."
-        git clone https://github.com/chm0dx/creepyCrawler.git ~/Tools
+        git clone https://github.com/chm0dx/creepyCrawler.git ~/creepyCrawler/Tools
         pip3 install -r ~/Tools/creepyCrawler/requirements.txt
         chmod +x ~/Tools/creepyCrawler/creepyCrawler.py
     fi
@@ -91,7 +91,7 @@ Tool_for_ubuntu() {
         echo -e "\e[32mSSRFmap already installed...\e[0m"
     else
         echo -e "\e[31meSSRFmap Now installing....\e[0m]"
-        git clone https://github.com/swisskyrepo/SSRFmap.git ~/Tools
+        git clone https://github.com/swisskyrepo/SSRFmap.git ~/SSRFmap/Tools
         pip install -r ~/Tools/SSRFmap/requirements.txt
         chmod +x ~/Tools/SSRFmap/ssrfmap.py
     fi
@@ -102,7 +102,7 @@ Tool_for_ubuntu() {
         echo -e "\e[32mseclist is already installed path is /usr/share/seclists\e[0m"
     else
         echo -e "\e[31mNow Installing seclists....\e[0m"
-        git clone https://github.com/danielmiessler/SecLists.git ~/Tools
+        git clone https://github.com/danielmiessler/SecLists.git ~/SecLists/Tools
         mv ~/Tools/SecLists ~/Tools/seclists
         sudo cp -r ~/Tools/seclists /usr/share
         rm -rf seclists
