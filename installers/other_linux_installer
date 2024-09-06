@@ -140,12 +140,14 @@ Tool_for_ubuntu() {
         sudo gem install wpscan
         echo -e "\e[32mWpscan installed u good to go\e[0m
         "
+        ./installers/go_tool_installer.sh
     else
         echo -e "\e[32mWpscan is already installed\e[0m"
+        ./installers/go_tool_installer.sh
 
     fi
 
     # calling go tool for installetion
-    ./installers/go_tool_installer.sh
+    # ./installers/go_tool_installer.sh
 }
 Tool_for_ubuntu
