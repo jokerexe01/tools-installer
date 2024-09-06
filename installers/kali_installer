@@ -101,12 +101,14 @@ kali_tools_installer() {
         sudo gem install wpscan
         echo -e "\e[32mWpscan installed u good to go\e[0m
         "
+        bash $TARGET/installers/go_tool_installer
     else
         echo -e "\e[32mWpscan is already installed\e[0m"
+        bash $TARGET/installers/go_tool_installer
     fi
     
     #calling go tool for installetion
-    bash $TARGET/installers/go_tool_installer
+    # bash $TARGET/installers/go_tool_installer
 }
 #calling the fum=nction
 kali_tools_installer
