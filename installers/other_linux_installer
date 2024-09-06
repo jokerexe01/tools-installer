@@ -4,13 +4,11 @@ Tool_for_ubuntu() {
     #feroxbuster
     if ! command -v feroxbuster &>/dev/null; then
         echo -e "\e[31mferoxbuster is not installed. Installing feroxbuster...\e[0m"
-        cd ~/Tools
-        wget https://github.com/epi052/feroxbuster/releases/download/v2.10.4/x86_64-linux-feroxbuster.tar.gz
-        tar -xf x86_64-linux-feroxbuster.tar.gz
-        chmod +x feroxbuster
-        sudo cp feroxbuster /bin
-        cd ~/Tools
-        rm -rf feroxbuster x86_64-linux-feroxbuster.tar.gz
+        wget https://github.com/epi052/feroxbuster/releases/download/v2.10.4/x86_64-linux-feroxbuster.tar.gz -o ~/Tools
+        tar -xf ~/Tools/x86_64-linux-feroxbuster.tar.gz
+        chmod +x ~/Tools/feroxbuster
+        sudo mv ~/Tools/feroxbuster /bin
+        # rm -rf ~/Tools/feroxbuster ~/Tools/x86_64-linux-feroxbuster.tar.gz
     else
         echo -e "\e[32mferoxbuster is already installed...\e[0m"
     fi
@@ -21,11 +19,9 @@ Tool_for_ubuntu() {
         echo -e "\e[32mXsstrike is already installed path is ~/Tools/XSStrike.\e[0m"
     else
         echo -e "\e[32mXSStrike not installed. Now installing XSStrike....\e[0m"
-        cd ~/Tools
-        git clone https://github.com/s0md3v/XSStrike.git
-        cd XSStrike
-        pip3 install -r requirements.txt
-        chmod +x xsstrike.py
+        git clone https://github.com/s0md3v/XSStrike.git ~/Tools
+        pip3 install -r ~/Tools/requirements.txt
+        chmod +x ~/Tools/XSStrike/XSStrike/xsstrike.py
         echo -e "\e[31mXSStrike is now installed in ~/Tools\e[0m"
     fi
 
@@ -35,19 +31,16 @@ Tool_for_ubuntu() {
         echo -e "\e[32msqlmap is already installed path is ~/Tools/sqlmap\e[0m"
     else
         echo -e "\e[31mnow installing sqlmap....\e0m"
-        cd ~/Tools
-        git clone https://github.com/sqlmapproject/sqlmap.git
+        git clone https://github.com/sqlmapproject/sqlmap.git ~/Tools
     fi
 
     #ghauri
     if ! command -v ghauri &>/dev/null; then
         echo -e "\e[31mghauri is not installed. Now installing ghauri....\e[0m"
-        cd ~/Tools
-        git clone https://github.com/r0oth3x49/ghauri.git
-        cd ghauri
-        pip3 install -r requirements.txt
-        python3 setup.py build
-        sudo python3 setup.py install
+        git clone https://github.com/r0oth3x49/ghauri.git ~/Tools
+        pip3 install -r ~/Tools/ghauri/requirements.txt
+        python3 ~/Tools/ghauri/setup.py build
+        sudo python3 ~/Tools/ghauri/setup.py install
     else
         echo -e "\e[32mghauri is already installed\e[0m"
     fi
@@ -55,12 +48,10 @@ Tool_for_ubuntu() {
     #checking if waymore installed or not
     if ! command -v waymore &>/dev/null; then
         echo -e "\e[31mwaymore is not installed. Now installing waymore...\e[0m"
-        cd ~/Tools
-        git clone https://github.com/xnl-h4ck3r/waymore.git
-        cd waymore/
-        pip3 install -r requirements.txt
-        python3 setup.py build
-        sudo python3 setup.py install
+        git clone https://github.com/xnl-h4ck3r/waymore.git ~/Tools
+        pip3 install -r ~/Tools/waymore/requirements.txt
+        python3 ~/Tools/waymore/setup.py build
+        sudo python3 ~/Tools/waymore/setup.py install
     else
         echo -e "\e[32mwaymore is already installed\e[0m"
     fi
@@ -68,11 +59,9 @@ Tool_for_ubuntu() {
     #checkinng if paramspider installed or not
     if ! command -v paramspider &>/dev/null; then
         echo -e "\e[31mparamspier is not installed. Now installing para,spider...\e[0m"
-        cd ~/Tools
-        git clone https://github.com/devanshbatham/ParamSpider.git
-        cd ParamSpider/
-        python3 setup.py build
-        sudo python3 setup.py install
+        git clone https://github.com/devanshbatham/ParamSpider.git ~/Tools
+        python3 ~/Tools/ParamSpider/setup.py build
+        sudo python3 ~/Tools/ParamSplider/setup.py install
     else
         echo -e "\e[32mparamspider is already installed..\e[0m"
     fi
@@ -83,11 +72,9 @@ Tool_for_ubuntu() {
         echo -e "\e[32mcreepyCrawler already exist\e[0m"
     else
         echo "Now installing creepyCrawler..."
-        cd ~/Tools
-        git clone https://github.com/chm0dx/creepyCrawler.git
-        cd creepyCrawler
-        pip3 install -r requirements.txt
-        chmod +x creepyCrawler.py
+        git clone https://github.com/chm0dx/creepyCrawler.git ~/Tools
+        pip3 install -r ~/Tools/creepyCrawler/requirements.txt
+        chmod +x ~/Tools/creepyCrawler/creepyCrawler.py
     fi
 
     #checkig if ffuf installed or not
@@ -104,11 +91,9 @@ Tool_for_ubuntu() {
         echo -e "\e[32mSSRFmap already installed...\e[0m"
     else
         echo -e "\e[31meSSRFmap Now installing....\e[0m]"
-        cd ~/Tools
-        git clone https://github.com/swisskyrepo/SSRFmap.git
-        cd SSRFmap
-        pip install -r requirements.txt
-        chmod +x ssrfmap.py
+        git clone https://github.com/swisskyrepo/SSRFmap.git ~/Tools
+        pip install -r ~/Tools/SSRFmap/requirements.txt
+        chmod +x ~/Tools/SSRFmap/ssrfmap.py
     fi
 
     #seclists
@@ -117,18 +102,16 @@ Tool_for_ubuntu() {
         echo -e "\e[32mseclist is already installed path is /usr/share/seclists\e[0m"
     else
         echo -e "\e[31mNow Installing seclists....\e[0m"
-        cd ~/Tools
-        git clone https://github.com/danielmiessler/SecLists.git
-        mv SecLists seclists
-        sudo cp -r seclists /usr/share
+        git clone https://github.com/danielmiessler/SecLists.git ~/Tools
+        mv ~/Tools/SecLists ~/Tools/seclists
+        sudo cp -r ~/Tools/seclists /usr/share
         rm -rf seclists
     fi
 
     #metasploit
     if ! command -v msfvenom &>/dev/null; then
         echo -e "\e[31mNow installing metasploit....\e[0m"
-        cd ~/Tools
-        curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb >msfinstall && chmod 755 msfinstall && ./msfinstall
+        curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb  >~/Tools/msfinstall && chmod 755 ~/Tools/msfinstall && ./Tools/msfinstall
     else
         echo -e "\e[32mmetasploit is already installed\e[0m"
     fi
@@ -140,14 +123,12 @@ Tool_for_ubuntu() {
         sudo gem install wpscan
         echo -e "\e[32mWpscan installed u good to go\e[0m
         "
-        ./installers/go_tool_installer.sh
     else
         echo -e "\e[32mWpscan is already installed\e[0m"
-        ./installers/go_tool_installer.sh
 
     fi
 
     # calling go tool for installetion
-    # ./installers/go_tool_installer.sh
+    ./installers/go_tool_installer.sh
 }
 Tool_for_ubuntu
