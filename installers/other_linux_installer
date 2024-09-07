@@ -8,7 +8,7 @@ Tool_for_ubuntu() {
         tar -xf x86_64-linux-feroxbuster.tar.gz
         chmod +x feroxbuster
         sudo mv feroxbuster /bin
-        # rm -rf ~/Tools/feroxbuster ~/Tools/x86_64-linux-feroxbuster.tar.gz
+        rm -rf feroxbuster x86_64-linux-feroxbuster.tar.gz
     else
         echo -e "\e[32mferoxbuster is already installed...\e[0m"
     fi
@@ -18,8 +18,8 @@ Tool_for_ubuntu() {
     if [ -d "$xsstrike_DIR" ]; then
         echo -e "\e[32mXsstrike is already installed path is ~/Tools/XSStrike.\e[0m"
     else
-        echo -e "\e[32mXSStrike not installed. Now installing XSStrike....\e[0m"
-        git clone https://github.com/s0md3v/XSStrike.git ~/XSStrike/Tools
+        echo -e "\e[31mXSStrike not installed. Now installing XSStrike....\e[0m"
+        git clone https://github.com/s0md3v/XSStrike.git ~/Tools/XSStrike
         pip3 install -r ~/Tools/XSStrike/requirements.txt
         chmod +x ~/Tools/XSStrike/XSStrike/xsstrike.py
         echo -e "\e[31mXSStrike is now installed in ~/Tools\e[0m"
@@ -46,7 +46,7 @@ Tool_for_ubuntu() {
     fi
 
     #checking if waymore installed or not
-    if ! command -v waymore &>/dev/null; then
+    if ! command -v waymore -h &>/dev/null; then
         echo -e "\e[31mwaymore is not installed. Now installing waymore...\e[0m"
         git clone https://github.com/xnl-h4ck3r/waymore.git ~/Tools/waymore
         pip3 install -r ~/Tools/waymore/requirements.txt
@@ -58,28 +58,28 @@ Tool_for_ubuntu() {
 
     #checkinng if paramspider installed or not
     if ! command -v paramspider &>/dev/null; then
-        echo -e "\e[31mparamspier is not installed. Now installing para,spider...\e[0m"
-        git clone https://github.com/devanshbatham/ParamSpider.git ~/ParamSpider/Tools
+        echo -e "\e[31mparamspider is not installed. Now installing para,spider...\e[0m"
+        git clone https://github.com/devanshbatham/ParamSpider.git ~/Tools/ParamSpider
         python3 ~/Tools/ParamSpider/setup.py build
-        sudo python3 ~/Tools/ParamSplider/setup.py install
+        sudo python3 ~/Tools/ParamSpider/setup.py install
     else
         echo -e "\e[32mparamspider is already installed..\e[0m"
     fi
 
     #checking if creepy crawler installed or not
-    ccreepyCrawler_DIR=$HOME/Tools/creepyCrawler
-    if [ -d "$ccreepyCrawler_DIR" ]; then
+    creepyCrawler_DIR=$HOME/Tools/creepyCrawler
+    if [ -d "$creepyCrawler_DIR" ]; then
         echo -e "\e[32mcreepyCrawler already exist\e[0m"
     else
-        echo "Now installing creepyCrawler..."
-        git clone https://github.com/chm0dx/creepyCrawler.git ~/creepyCrawler/Tools
+        echo -e "\e[31mcreepy crawler not exsists...Now installing it\e[0m"
+        git clone https://github.com/chm0dx/creepyCrawler.git ~/Tools/creepyCrawler
         pip3 install -r ~/Tools/creepyCrawler/requirements.txt
         chmod +x ~/Tools/creepyCrawler/creepyCrawler.py
     fi
 
     #checkig if ffuf installed or not
     if ! command -v ffuf &>/dev/null; then
-        echo -e "\e[31mffuf not installed. Now installing ffuf\3[0m"
+        echo -e "\e[31mffuf not installed. Now installing ffuf\e[0m"
         sudo apt install ffuf
     else
         echo -e "\e[32mffuf already installed...\e[0m"
@@ -121,7 +121,6 @@ Tool_for_ubuntu() {
         echo -e "\e[31mNow installing wpscan\e[0m"
         sudo apt install -y ruby gem build-essential libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev libgmp-dev zlib1g-dev
         sudo gem install wpscan
-        echo -e "\e[32mWpscan installed u good to go\e[0m"
     else
         echo -e "\e[32mWpscan is already installed\e[0m"
     fi
