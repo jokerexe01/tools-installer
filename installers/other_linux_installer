@@ -4,10 +4,10 @@ Tool_for_ubuntu() {
     #feroxbuster
     if ! command -v feroxbuster &>/dev/null; then
         echo -e "\e[31mferoxbuster is not installed. Installing feroxbuster...\e[0m"
-        wget https://github.com/epi052/feroxbuster/releases/download/v2.10.4/x86_64-linux-feroxbuster.tar.gz -o ~/Tools/x86_64-linux-feroxbuster.tar.gz
-        tar -xf ~/Tools/x86_64-linux-feroxbuster.tar.gz
-        chmod +x ~/Tools/feroxbuster
-        sudo mv ~/Tools/feroxbuster /bin
+        wget https://github.com/epi052/feroxbuster/releases/download/v2.10.4/x86_64-linux-feroxbuster.tar.gz
+        tar -xf x86_64-linux-feroxbuster.tar.gz
+        chmod +x feroxbuster
+        sudo mv feroxbuster /bin
         # rm -rf ~/Tools/feroxbuster ~/Tools/x86_64-linux-feroxbuster.tar.gz
     else
         echo -e "\e[32mferoxbuster is already installed...\e[0m"
