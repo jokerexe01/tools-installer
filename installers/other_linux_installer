@@ -12,7 +12,7 @@ Tool_for_ubuntu() {
     else
         echo -e "\e[32mferoxbuster is already installed...\e[0m"
     fi
-
+    
     #XSSstrike
     xsstrike_DIR="$HOME/Tools/XSStrike"
     if [ -d "$xsstrike_DIR" ]; then
@@ -24,7 +24,7 @@ Tool_for_ubuntu() {
         chmod +x ~/Tools/XSStrike/XSStrike/xsstrike.py
         echo -e "\e[31mXSStrike is now installed in ~/Tools\e[0m"
     fi
-
+    
     #sqlmap
     sqlmap_DIR="$HOME/Tools/sqlmap"
     if [ -d "$sqlmap_DIR" ]; then
@@ -33,7 +33,7 @@ Tool_for_ubuntu() {
         echo -e "\e[31mnow installing sqlmap....\e0m"
         git clone https://github.com/sqlmapproject/sqlmap.git ~/Tools/sqlmap
     fi
-
+    
     #ghauri
     if ! command -v ghauri &>/dev/null; then
         echo -e "\e[31mghauri is not installed. Now installing ghauri....\e[0m"
@@ -44,7 +44,7 @@ Tool_for_ubuntu() {
     else
         echo -e "\e[32mghauri is already installed\e[0m"
     fi
-
+    
     #checking if waymore installed or not
     if ! command -v waymore -h &>/dev/null; then
         echo -e "\e[31mwaymore is not installed. Now installing waymore...\e[0m"
@@ -55,7 +55,7 @@ Tool_for_ubuntu() {
     else
         echo -e "\e[32mwaymore is already installed\e[0m"
     fi
-
+    
     #checkinng if paramspider installed or not
     if ! command -v paramspider &>/dev/null; then
         echo -e "\e[31mparamspider is not installed. Now installing para,spider...\e[0m"
@@ -65,18 +65,20 @@ Tool_for_ubuntu() {
     else
         echo -e "\e[32mparamspider is already installed..\e[0m"
     fi
-
+    
     #checking if creepy crawler installed or not
     creepyCrawler_DIR=$HOME/Tools/creepyCrawler
     if [ -d "$creepyCrawler_DIR" ]; then
         echo -e "\e[32mcreepyCrawler already exist\e[0m"
     else
-        echo -e "\e[31mcreepy crawler not exsists...Now installing it\e[0m"
-        git clone https://github.com/chm0dx/creepyCrawler.git ~/Tools/creepyCrawler
-        pip3 install -r ~/Tools/creepyCrawler/requirements.txt
-        chmod +x ~/Tools/creepyCrawler/creepyCrawler.py
+        echo -e "\e[31mNow installing creepyCrawler...\e[0m"
+        cd ~/Tools
+        git clone https://github.com/chm0dx/creepyCrawler.git
+        cd creepyCrawler
+        pip3 install -r requirements.txt
+        chmod +x creepyCrawler.py
     fi
-
+    
     #checkig if ffuf installed or not
     if ! command -v ffuf &>/dev/null; then
         echo -e "\e[31mffuf not installed. Now installing ffuf\e[0m"
@@ -84,7 +86,7 @@ Tool_for_ubuntu() {
     else
         echo -e "\e[32mffuf already installed...\e[0m"
     fi
-
+    
     #checking if SSRFmap installed or not
     ssrf_DIR=$HOME/Tools/SSRFmap
     if [ -d "$ssrf_DIR" ]; then
@@ -95,7 +97,7 @@ Tool_for_ubuntu() {
         pip install -r ~/Tools/SSRFmap/requirements.txt
         chmod +x ~/Tools/SSRFmap/ssrfmap.py
     fi
-
+    
     #seclists
     seclist_DIR=/usr/share/seclists
     if [ -d "$seclist_DIR" ]; then
@@ -107,7 +109,7 @@ Tool_for_ubuntu() {
         sudo cp -r ~/Tools/seclists /usr/share
         rm -rf seclists
     fi
-
+    
     #metasploit
     if ! command -v msfvenom &>/dev/null; then
         echo -e "\e[31mNow installing metasploit....\e[0m"
@@ -115,7 +117,7 @@ Tool_for_ubuntu() {
     else
         echo -e "\e[32mmetasploit is already installed\e[0m"
     fi
-
+    
     #checking wpscan
     if ! command -v wpscan &>/dev/null; then
         echo -e "\e[31mNow installing wpscan\e[0m"
@@ -124,7 +126,7 @@ Tool_for_ubuntu() {
     else
         echo -e "\e[32mWpscan is already installed\e[0m"
     fi
-
+    
     # calling go tool for installetion
     ./installers/go_tool_installer.sh
 }

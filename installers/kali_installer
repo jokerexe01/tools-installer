@@ -10,18 +10,26 @@ kali_tools_installer() {
         echo -e "\e[32mferoxbuster is already installed...\e[0m"
     fi
     
-    #checking if XSSstrike is downloaded or not
+    #checkinng if paramspider installed or not
+    if ! command -v paramspider &>/dev/null; then
+        echo -e "\e[31mparamspider is not installed. Now installing para,spider...\e[0m"
+        git clone https://github.com/devanshbatham/ParamSpider.git ~/Tools/ParamSpider
+        python3 ~/Tools/ParamSpider/setup.py build
+        sudo python3 ~/Tools/ParamSpider/setup.py install
+    else
+        echo -e "\e[32mparamspider is already installed..\e[0m"
+    fi
+    
+    #XSSstrike
     xsstrike_DIR="$HOME/Tools/XSStrike"
     if [ -d "$xsstrike_DIR" ]; then
         echo -e "\e[32mXsstrike is already installed path is ~/Tools/XSStrike.\e[0m"
     else
         echo -e "\e[31mXSStrike not installed. Now installing XSStrike....\e[0m"
-        cd ~/Tools
-        git clone https://github.com/s0md3v/XSStrike.git
-        cd XSStrike
-        pip3 install -r requirements.txt
-        chmod +x xsstrike.py
-        echo -e "\e[32mXSStrike is now installed in ~/Tools\e[0m"
+        git clone https://github.com/s0md3v/XSStrike.git ~/Tools/XSStrike
+        pip3 install -r ~/Tools/XSStrike/requirements.txt
+        chmod +x ~/Tools/XSStrike/XSStrike/xsstrike.py
+        echo -e "\e[31mXSStrike is now installed in ~/Tools\e[0m"
     fi
     
     #checking if sqlmap installed or not
@@ -32,29 +40,26 @@ kali_tools_installer() {
         echo -e "\e[32msqlmap is already installed...\e[0m "
     fi
     
-    #checking if ghauri is installed or not
+    #ghauri
     if ! command -v ghauri &>/dev/null; then
         echo -e "\e[31mghauri is not installed. Now installing ghauri....\e[0m"
-        cd ~/Tools
-        git clone https://github.com/r0oth3x4/ghauri.git
-        cd ghauri
-        pip3 install -r requirements.txt
-        python3 setup.py build
-        sudo python3 setup.py install
+        git clone https://github.com/r0oth3x49/ghauri.git ~/Tools/ghauri
+        pip3 install -r ~/Tools/ghauri/requirements.txt
+        python3 ~/Tools/ghauri/setup.py build
+        sudo python3 ~/Tools/ghauri/setup.py install
     else
-        echo -e "\e[32mghauri is already installed \e[0m"
+        echo -e "\e[32mghauri is already installed\e[0m"
     fi
     
     #checking if waymore installed or not
-    if ! command -v waymore &>/dev/null; then
-        echo -e "\e[31mparamspier is not installed. Now installing paramspider...\e[0m"
-        cd ~/Tools
-        git clone https://github.com/devanshbatham/ParamSpider.git
-        cd ParamSpider/
-        python3 setup.py build
-        sudo python3 setup.py install
+    if ! command -v waymore -h &>/dev/null; then
+        echo -e "\e[31mwaymore is not installed. Now installing waymore...\e[0m"
+        git clone https://github.com/xnl-h4ck3r/waymore.git ~/Tools/waymore
+        pip3 install -r ~/Tools/waymore/requirements.txt
+        python3 ~/Tools/waymore/setup.py build
+        sudo python3 ~/Tools/waymore/setup.py install
     else
-        echo -e "\e[32mparamspider is already installed..\e[0m"
+        echo -e "\e[32mwaymore is already installed\e[0m"
     fi
     
     #checking if creepy crawler installed or not
@@ -81,34 +86,25 @@ kali_tools_installer() {
     #checking if SSRFmap installed or not
     ssrf_DIR=$HOME/Tools/SSRFmap
     if [ -d "$ssrf_DIR" ]; then
-        echo -e "\e[32mSSRFmap already installed..\e[0m"
+        echo -e "\e[32mSSRFmap already installed...\e[0m"
     else
-        echo -e "\e[31mssrf is now installing...\e[0m"
-        cd ~/Tools
-        git clone https://github.com/swisskyrepo/SSRFmap.git
-        cd SSRFmap
-        pip3 install -r requirements.txt
-        chmod +x ssrfmap.py
+        echo -e "\e[31meSSRFmap Now installing....\e[0m]"
+        git clone https://github.com/swisskyrepo/SSRFmap.git ~/Tools/SSRFmap/
+        pip install -r ~/Tools/SSRFmap/requirements.txt
+        chmod +x ~/Tools/SSRFmap/ssrfmap.py
     fi
     
     #checking wpscan
     if ! command -v wpscan &>/dev/null; then
-        
         echo -e "\e[31mNow installing wpscan\e[0m"
-        sudo apt install gem
-        sudo apt install ruby
-        sudo apt install build-essential libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev libgmp-dev zlib1g-dev
+        sudo apt install -y ruby gem build-essential libcurl4-openssl-dev libxml2 libxml2-dev libxslt1-dev ruby-dev libgmp-dev zlib1g-dev
         sudo gem install wpscan
-        echo -e "\e[32mWpscan installed u good to go\e[0m
-        "
-        bash $TARGET/installers/go_tool_installer
     else
         echo -e "\e[32mWpscan is already installed\e[0m"
-        bash $TARGET/installers/go_tool_installer
     fi
     
     #calling go tool for installetion
-    # bash $TARGET/installers/go_tool_installer
+    ./installers/go_tool_installer.sh
 }
 #calling the fum=nction
 kali_tools_installer
