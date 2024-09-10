@@ -4,7 +4,7 @@ kali_tools_installer() {
     
     #checking feroxbuster
     if ! command -v feroxbuster &>/dev/null; then
-        echo "\e[31mferoxbuster is not installed. Installing feroxbuster...\e[0m"
+        echo -e "\e[31mferoxbuster is not installed. Installing feroxbuster...\e[0m"
         sudo apt install feroxbuster
     else
         echo -e "\e[32mferoxbuster is already installed...\e[0m"
