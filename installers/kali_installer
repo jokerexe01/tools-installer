@@ -5,7 +5,7 @@ kali_tools_installer() {
     #checking feroxbuster
     if ! command -v feroxbuster &>/dev/null; then
         echo -e "\e[31mferoxbuster is not installed. Installing feroxbuster...\e[0m"
-        sudo apt install feroxbuster
+        sudo apt install feroxbuster -y
     else
         echo -e "\e[32mferoxbuster is already installed...\e[0m"
     fi
@@ -16,7 +16,7 @@ kali_tools_installer() {
         git clone https://github.com/devanshbatham/ParamSpider.git ~/Tools/ParamSpider
         python3 ~/Tools/ParamSpider/setup.py build
         sudo python3 ~/Tools/ParamSpider/setup.py install
-    else
+    elseDA43-9B45
         echo -e "\e[32mparamspider is already installed..\e[0m"
     fi
     
@@ -35,7 +35,7 @@ kali_tools_installer() {
     #checking if sqlmap installed or not
     if ! command -v sqlmap &>/dev/null; then
         echo -e "\e[31msqlmap is not there. Now installng sqlmap...\e[0m"
-        sudo apt install sqlmap
+        sudo apt install sqlmap -y
     else
         echo -e "\e[32msqlmap is already installed...\e[0m "
     fi
@@ -76,7 +76,7 @@ kali_tools_installer() {
     #checkig if ffuf installed or not
     if ! command -v ffuf &>/dev/null; then
         echo -e "\e[31mffuf not installed. Now installing ffuf\e[0m"
-        sudo apt install ffuf
+        sudo apt install ffuf -y
     else
         echo -e "\e[32mffuf already installed...\e[0m"
     fi
