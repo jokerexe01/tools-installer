@@ -27,6 +27,9 @@ install_go_tools() {
     install_tool_if_needed "kxss" "go install github.com/Emoe/kxss@latest"
     install_tool_if_needed "waybackurls" "go install github.com/tomnomnom/waybackurls@latest"
     install_tool_if_needed "katana" "go install github.com/projectdiscovery/katana/cmd/katana@latest"
+    install_tool_if_needed "mantra" "go install github.com/MrEmpy/mantra@latest"
+    install_tool_if_needed "subjs" "go install github.com/lc/subjs@latest"
+
 
     echo -e "\e[32mAll installations are complete.\e[0m"
 
