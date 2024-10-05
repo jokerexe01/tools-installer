@@ -2,13 +2,15 @@
 kali_tools_installer() {
     echo -e "\e[31minstalling Tools for kali\e[0m"
 
+
     #checking feroxbuster
     if ! command -v feroxbuster &>/dev/null; then
         echo -e "\e[31mferoxbuster is not installed. Installing feroxbuster...\e[0m"
-        sudo apt install feroxbuster
+        sudo apt install feroxbuster -y
     else
         echo -e "\e[32mferoxbuster is already installed...\e[0m"
     fi
+
 
     #checkinng if paramspider installed or not
     if ! command -v paramspider &>/dev/null; then
@@ -16,9 +18,10 @@ kali_tools_installer() {
         git clone https://github.com/devanshbatham/ParamSpider.git ~/Tools/ParamSpider
         python3 ~/Tools/ParamSpider/setup.py build
         sudo python3 ~/Tools/ParamSpider/setup.py install
-    else
+        elseDA43-9B45
         echo -e "\e[32mparamspider is already installed..\e[0m"
     fi
+
 
     #XSSstrike
     xsstrike_DIR="$HOME/Tools/XSStrike"
@@ -32,13 +35,15 @@ kali_tools_installer() {
         echo -e "\e[31mXSStrike is now installed in ~/Tools\e[0m"
     fi
 
+
     #checking if sqlmap installed or not
     if ! command -v sqlmap &>/dev/null; then
         echo -e "\e[31msqlmap is not there. Now installng sqlmap...\e[0m"
-        sudo apt install sqlmap
+        sudo apt install sqlmap -y
     else
         echo -e "\e[32msqlmap is already installed...\e[0m "
     fi
+
 
     #ghauri
     if ! command -v ghauri &>/dev/null; then
@@ -51,6 +56,7 @@ kali_tools_installer() {
         echo -e "\e[32mghauri is already installed\e[0m"
     fi
 
+
     #checking if waymore installed or not
     if ! command -v waymore -h &>/dev/null; then
         echo -e "\e[31mwaymore is not installed. Now installing waymore...\e[0m"
@@ -62,26 +68,27 @@ kali_tools_installer() {
         echo -e "\e[32mwaymore is already installed\e[0m"
     fi
 
+
     #checking if creepy crawler installed or not
     creepyCrawler_DIR=$HOME/Tools/creepyCrawler
     if [ -d "$creepyCrawler_DIR" ]; then
         echo -e "\e[32mcreepyCrawler already exist\e[0m"
     else
         echo -e "\e[31mNow installing creepyCrawler...\e[0m"
-        cd ~/Tools
-        git clone https://github.com/chm0dx/creepyCrawler.git
-        cd creepyCrawler
-        pip3 install -r requirements.txt
-        chmod +x creepyCrawler.py
+        git clone https://github.com/chm0dx/creepyCrawler.git ~/Tools/creepyCrawler
+        pip3 install -r ~/Tools/creepyCrawler/requirements.txt
+        chmod +x ~/Tools/creepyCrawler/creepyCrawler.py
     fi
+
 
     #checkig if ffuf installed or not
     if ! command -v ffuf &>/dev/null; then
         echo -e "\e[31mffuf not installed. Now installing ffuf\e[0m"
-        sudo apt install ffuf
+        sudo apt install ffuf -y
     else
         echo -e "\e[32mffuf already installed...\e[0m"
     fi
+
 
     #checking if SSRFmap installed or not
     ssrf_DIR=$HOME/Tools/SSRFmap
@@ -93,6 +100,7 @@ kali_tools_installer() {
         pip install -r ~/Tools/SSRFmap/requirements.txt
         chmod +x ~/Tools/SSRFmap/ssrfmap.py
     fi
+
 
     #checking wpscan
     if ! command -v wpscan &>/dev/null; then
@@ -118,3 +126,4 @@ kali_tools_installer() {
 }
 #calling the fum=nction
 kali_tools_installer
+

@@ -23,10 +23,13 @@ install_go_tools() {
     install_tool_if_needed "gau" "go install github.com/lc/gau/v2/cmd/gau@latest"
     install_tool_if_needed "gf" "go install github.com/tomnomnom/gf@latest && cd ~/Tools && git clone https://github.com/Sherlock297/gf_patterns.git && cd gf_patterns/ && mkdir -p ~/.gf && cp *.json ~/.gf && gf -list"
     install_tool_if_needed "dnsx" "go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest"
-    install_tool_if_needed "naabu" "go install github.com/projectdiscovery/naabu/v2/cmd/naabu@latest"
+    install_tool_if_needed "naabu" "sudo apt install -y libpcap-dev && go install github.com/projectdiscovery/naabu/v2/cmd/naabu@latest"
     install_tool_if_needed "kxss" "go install github.com/Emoe/kxss@latest"
     install_tool_if_needed "waybackurls" "go install github.com/tomnomnom/waybackurls@latest"
     install_tool_if_needed "katana" "go install github.com/projectdiscovery/katana/cmd/katana@latest"
+    install_tool_if_needed "mantra" "go install github.com/MrEmpy/mantra@latest"
+    install_tool_if_needed "subjs" "go install github.com/lc/subjs@latest"
+
 
     echo -e "\e[32mAll installations are complete.\e[0m"
 
